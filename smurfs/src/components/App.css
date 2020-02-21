@@ -31,3 +31,27 @@
       transform: rotate(360deg);
    }
 }
+
+.house {
+   display: flex;
+   justify-content: space-evenly;
+   flex-wrap: wrap;
+}
+
+.smurf {
+   margin: 2%;
+   padding: 2%;
+   background: dodgerblue;
+   border: 2px solid grey;
+   width: 26%;
+}
+
+.x-div {
+   text-align: right;
+}
+
+.x {
+   background-color: red;
+   border: none;
+   color: white;
+}

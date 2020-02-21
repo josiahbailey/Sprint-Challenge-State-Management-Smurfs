@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const SmurfForm = ({ postSmurf }) => {
+const SmurfForm = ({ postSmurf, editSmurf }) => {
    const [smurf, setSmurf] = useState({
       name: '',
       age: 0,

@@ -2,12 +2,12 @@ import React from 'react';
 
 import Smurf from './Smurf'
 
-const SmurfHouse = ({ smurfs, isFetching, error }) => {
+const SmurfHouse = ({ smurfs, isFetching, error, deleteSmurf }) => {
    return (
       <div className='house'>
          {isFetching ? <h3>LOADING...</h3> : error ? <h3>ERROR</h3> :
             smurfs.map(smurf => (
-               <Smurf smurf={smurf} />
+               <Smurf deleteSmurf={deleteSmurf} smurf={smurf} />
             ))
          }
       </div>
