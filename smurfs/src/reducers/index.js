@@ -1,8 +1,10 @@
-import { FETCH_SMURFS, FETCH_SUCCESS, FETCH_FAIL, POST_SMURF, POST_SUCCESS, POST_FAIL, PUT_SMURF, PUT_SUCCESS, PUT_FAIL, DELETE_SMURF, DELETE_SUCCESS, DELETE_FAIL } from '../actions'
+import { FETCH_SMURFS, FETCH_SUCCESS, FETCH_FAIL, POST_SMURF, POST_SUCCESS, POST_FAIL, PUT_SMURF, PUT_SUCCESS, PUT_FAIL, DELETE_SMURF, DELETE_SUCCESS, DELETE_FAIL, TOGGLE_EDIT } from '../actions'
 
 const intitialState = {
    smurfs: [],
    isFetching: false,
+   isEditing: false,
+   smurfToEdit: {},
    error: ''
 }
 
@@ -76,6 +78,12 @@ export const reducer = (state = intitialState, action) => {
          return {
             ...state,
             error: action.payload
+         }
+      case TOGGLE_EDIT:
+         return {
+            ...state,
+            isEditing: !state.isEditing,
+            smurfToEdit: action.payload
          }
       default:
          return state

@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 
 import { connect } from 'react-redux'
-import { getSmurfs, postSmurf, editSmurf, deleteSmurf } from '../actions'
+import { getSmurfs, postSmurf, editSmurf, toggleEdit, deleteSmurf } from '../actions'
 
 import SmurfHouse from './SmurfHouse'
 import SmurfForm from './SmurfForm'
 import "./App.css";
 
-const App = ({ smurfs, isFetching, error, getSmurfs, postSmurf, editSmurf, deleteSmurf }) => {
+const App = ({ smurfs, isFetching, error, getSmurfs, postSmurf, editSmurf, deleteSmurf, toggleEdit }) => {
    useEffect(() => {
       getSmurfs()
    }, [])
@@ -23,7 +23,8 @@ const App = ({ smurfs, isFetching, error, getSmurfs, postSmurf, editSmurf, delet
             error={error}
             isFetching={isFetching}
             smurfs={smurfs}
-            deleteSmurf={deleteSmurf} />
+            deleteSmurf={deleteSmurf}
+            toggleEdit={toggleEdit} />
       </div>
    );
 }
@@ -33,8 +34,10 @@ const mapStateToProps = state => (
    {
       smurfs: state.smurfs,
       isFetching: state.isFetching,
+      isEditing: state.isEditing,
+      smurfToEdit: state.smurfToEdit,
       error: state.error
    }
 )
 
-export default connect(mapStateToProps, { getSmurfs, postSmurf, editSmurf, deleteSmurf })(App);
+export default connect(mapStateToProps, { getSmurfs, postSmurf, editSmurf, deleteSmurf, toggleEdit })(App);

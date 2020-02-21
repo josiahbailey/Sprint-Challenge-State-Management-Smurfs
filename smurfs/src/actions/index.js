@@ -57,11 +57,19 @@ export const deleteSmurf = smurf => dispatch => {
    dispatch({ type: DELETE_SMURF })
    axios.delete(`http://localhost:3333/smurfs/${smurf.id}`)
       .then(res => {
-         console.log(res)
          dispatch({ type: DELETE_SUCCESS, payload: res.data })
       })
       .catch(err => {
          console.log(err)
          dispatch({ type: DELETE_FAIL, payload: err })
       })
+}
+
+export const TOGGLE_EDIT
+
+export const toggleEdit = smurf => {
+   return {
+      type: TOGGLE_EDIT,
+      payload: smurf
+   }
 }

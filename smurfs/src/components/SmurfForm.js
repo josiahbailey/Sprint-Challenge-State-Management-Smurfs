@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const SmurfForm = ({ postSmurf, editSmurf }) => {
    const [smurf, setSmurf] = useState({
@@ -23,6 +23,9 @@ const SmurfForm = ({ postSmurf, editSmurf }) => {
          id: Date.now()
       })
    }
+   useEffect(() => {
+
+   }, [isEditing])
    return (
       <form onSubmit={handleSubmit} className='form'>
          <input className='input' onChange={handleChange} value={smurf.name} name='name' placeholder='name' type='text' />

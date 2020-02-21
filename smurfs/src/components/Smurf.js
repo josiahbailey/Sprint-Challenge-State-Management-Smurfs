@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Smurf = ({ smurf, deleteSmurf }) => {
+const Smurf = ({ smurf, deleteSmurf, toggleEdit }) => {
    const { name, age, height } = smurf
    return (
       <div className='smurf'>
@@ -8,7 +8,7 @@ const Smurf = ({ smurf, deleteSmurf }) => {
          <h4>Name: {name}</h4>
          <h4>Age: {age}</h4>
          <h4>Height: {height}</h4>
-         <button className='btn'>Edit</button>
+         <button onClick={() => toggleEdit(smurf)} className='btn'>Edit</button>
       </div>
    );
 }
