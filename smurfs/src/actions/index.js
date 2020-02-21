@@ -65,7 +65,7 @@ export const deleteSmurf = smurf => dispatch => {
       })
 }
 
-export const TOGGLE_EDIT
+export const TOGGLE_EDIT = 'TOGGLE_EDIT'
 
 export const toggleEdit = smurf => {
    return {

@@ -7,7 +7,7 @@ import SmurfHouse from './SmurfHouse'
 import SmurfForm from './SmurfForm'
 import "./App.css";
 
-const App = ({ smurfs, isFetching, error, getSmurfs, postSmurf, editSmurf, deleteSmurf, toggleEdit }) => {
+const App = ({ smurfs, isFetching, error, getSmurfs, postSmurf, editSmurf, deleteSmurf, toggleEdit, isEditing, smurfToEdit }) => {
    useEffect(() => {
       getSmurfs()
    }, [])
@@ -17,7 +17,10 @@ const App = ({ smurfs, isFetching, error, getSmurfs, postSmurf, editSmurf, delet
          <h1>Wecome to your Smurf House!</h1>
          <SmurfForm
             postSmurf={postSmurf}
-            editSmurf={editSmurf} />
+            editSmurf={editSmurf}
+            isEditing={isEditing}
+            smurfToEdit={smurfToEdit}
+            toggleEdit={toggleEdit} />
          <h2>House</h2>
          <SmurfHouse
             error={error}
